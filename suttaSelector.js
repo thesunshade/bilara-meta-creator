@@ -108,7 +108,7 @@ export default function suttaSelector(elementId) {
     });
     const bookChapterLabel = document.createElement("label");
     bookChapterLabel.setAttribute("class", "nikaya-chapter-dropdown");
-    bookChapterLabel.append(`${book.toUpperCase()} Chapter`);
+    bookChapterLabel.append(`Chapter`);
     bookChapterLabel.append(chapterDropdown);
     suttaSelectorForm.append(bookChapterLabel);
 

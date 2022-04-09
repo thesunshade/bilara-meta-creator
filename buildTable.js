@@ -19,7 +19,7 @@ export default function buildTable(slug) {
         const cellId = document.createElement("td");
         cellId.setAttribute("id", `id-${section}`);
         cellId.classList.add("id-class");
-        cellId.append(section);
+        cellId.append(section.replace(/^[a-z]*/, ""));
         cellId.addEventListener("click", () => {
           const targetUtilityRow = document.getElementById(`utility-${section}`);
           targetUtilityRow.classList.toggle("hidden");
