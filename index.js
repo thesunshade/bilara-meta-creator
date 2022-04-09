@@ -1,5 +1,5 @@
 import buildTable from "./buildTable.js";
-import { dppn } from "./DPPN.js";
+// import { dppn } from "./DPPN.js";
 import suttaSelector from "./suttaSelector.js";
 
 export const suttaTable = document.querySelector("#sutta-table");
