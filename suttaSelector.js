@@ -135,7 +135,6 @@ export default function suttaSelector(elementId) {
     });
     const suttaInChapterLabel = document.createElement("label");
     suttaInChapterLabel.setAttribute("class", "nikaya-chapter-dropdown chapter-sutta-dropdown");
-    suttaInChapterLabel;
     suttaInChapterLabel.append("Sutta");
     suttaInChapterLabel.append(suttaInChapterDropdown);
     suttaSelectorForm.append(suttaInChapterLabel);
