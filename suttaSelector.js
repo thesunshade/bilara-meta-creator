@@ -108,7 +108,7 @@ export default function suttaSelector(elementId) {
     });
     const bookChapterLabel = document.createElement("label");
     bookChapterLabel.setAttribute("class", "nikaya-chapter-dropdown");
-    bookChapterLabel.append(`Chapter`);
+    bookChapterLabel.append(`${book.toUpperCase()} Chapter`);
     bookChapterLabel.append(chapterDropdown);
     suttaSelectorForm.append(bookChapterLabel);
 
@@ -117,12 +117,12 @@ export default function suttaSelector(elementId) {
       existingSuttaDropdowns && existingSuttaDropdowns.remove();
       const existingSubmitButton = document.getElementById("sutta-submit-button");
       existingSubmitButton && existingSubmitButton.remove();
-      makeSuttaInChapterDropdown(book, bookData, e.target.value);
+      makeSuttaInChapterDropdown(bookData, e.target.value);
     });
   }
 
   // --- suttas in chapter dropdown
-  function makeSuttaInChapterDropdown(book, bookData, chapter) {
+  function makeSuttaInChapterDropdown(bookData, chapter) {
     const suttaInChapterDropdown = document.createElement("select");
     suttaInChapterDropdown.setAttribute("id", `chapter-sutta-dropdown`);
     const suttas = bookData[chapter];
@@ -135,6 +135,7 @@ export default function suttaSelector(elementId) {
     });
     const suttaInChapterLabel = document.createElement("label");
     suttaInChapterLabel.setAttribute("class", "nikaya-chapter-dropdown chapter-sutta-dropdown");
+    suttaInChapterLabel;
     suttaInChapterLabel.append("Sutta");
     suttaInChapterLabel.append(suttaInChapterDropdown);
     suttaSelectorForm.append(suttaInChapterLabel);
@@ -166,7 +167,7 @@ export default function suttaSelector(elementId) {
       existingSuttaDropdowns && existingSuttaDropdowns.remove();
       const existingSubmitButton = document.getElementById("sutta-submit-button");
       existingSubmitButton && existingSubmitButton.remove();
-      makeSuttaInChapterDropdown("kn", bookData, e.target.value);
+      makeSuttaInChapterDropdown(bookData, e.target.value);
     });
   }
 
