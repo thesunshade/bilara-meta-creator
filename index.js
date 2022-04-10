@@ -3,7 +3,7 @@ import buildTable from "./buildTable.js";
 import suttaSelector from "./suttaSelector.js";
 
 export const suttaTable = document.querySelector("#sutta-table");
-
+export let personsStandoff = {};
 suttaSelector("sutta-selector");
 
 // loadSuttaForm.addEventListener("submit", e => {
@@ -12,8 +12,6 @@ suttaSelector("sutta-selector");
 //   personsStandoff = buildTable(requestedNikaya.value, requestedSutta.value);
 //   console.log(personsStandoff);
 // });
-
-export let personsStandoff = [];
 
 // builds words from dictionary
 // let words = [];

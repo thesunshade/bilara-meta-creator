@@ -19,7 +19,7 @@ export default function buildUtilityRow(section, utilityRow) {
   wordInputAdd.addEventListener("submit", e => {
     e.preventDefault();
 
-    // before adding an item, it is necessary to check and see if it already exists in the list.
+    // before adding an item, it is necessary to check and see if it already exists in the list. that still needs to be coded
 
     const newItem = document.createElement("li");
     newItem.setAttribute("id", `id-${section}${wordInput.value}`);
@@ -31,12 +31,12 @@ export default function buildUtilityRow(section, utilityRow) {
     newDeleteButton.append("Delete");
     newItem.append(newDeleteButton);
     wordDisplay.append(newItem);
-    personsStandoff.forEach(item => {
-      if (Object.keys(item).includes(section)) {
-        if (item[section] === "") {
-          item[section] = wordInput.value;
+    Object.keys(personsStandoff).forEach(item => {
+      if (item === section) {
+        if (personsStandoff[section] === "") {
+          personsStandoff[section] = wordInput.value;
         } else {
-          item[section] += `, ${wordInput.value}`;
+          personsStandoff[section] += `, ${wordInput.value}`;
         }
       }
     });
@@ -49,6 +49,7 @@ export default function buildUtilityRow(section, utilityRow) {
     });
 
     buildStandoff(personsStandoff);
+    console.log(personsStandoff);
     // console.log(personsStandoff);
   });
 }

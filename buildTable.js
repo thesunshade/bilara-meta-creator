@@ -1,10 +1,10 @@
 import buildUtilityRow from "./buildUtilityRow.js";
 import { suttaTable } from "./index.js";
+import { personsStandoff } from "./index.js";
 
-// returns the personsStandoff as a array of objects with no values
 export default function buildTable(slug) {
   slug = slug.toLowerCase();
-  let personsStandoff = [];
+
   suttaTable.innerHTML = "";
   fetch(
     `https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/pli/ms/sutta/${slug}_root-pli-ms.json`
@@ -12,7 +12,8 @@ export default function buildTable(slug) {
     .then(response => response.json())
     .then(paliData => {
       Object.keys(paliData).forEach(section => {
-        personsStandoff.push({ [section]: "" });
+        personsStandoff[section] = "";
+
         const segmentRow = document.createElement("tr");
         segmentRow.setAttribute("id", `tr-${section}`);
         // id cell
@@ -47,6 +48,8 @@ export default function buildTable(slug) {
 
         buildUtilityRow(section, utilityRow);
       });
+
+      localStorage.personsStandoff = JSON.stringify(personsStandoff);
     })
     .then(() => {
       fetch(
@@ -60,5 +63,4 @@ export default function buildTable(slug) {
           });
         });
     });
-  return personsStandoff;
 }
